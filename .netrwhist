@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/ddavydov/ws/science-binaries/home/pants/pex/0.0.19'
 let g:netrw_dirhist_2='/home/ddavydov/ws/science/src/python/twitter/devprod/ci/test_retry'
 let g:netrw_dirhist_3='/home/ddavydov/ws/birdcage/pants-support/jenkins'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/ddavydov/Dropbox/ubuntu/.vim/bundle/vim-airline/aut
 let g:netrw_dirhist_5='/home/ddavydov/ws/birdcage/3rdparty'
 let g:netrw_dirhist_6='/home/ddavydov/ws/science/src/java/com/twitter/iron/client'
 let g:netrw_dirhist_7='/home/ddavydov/ws/science/.ci.info'
+let g:netrw_dirhist_8='/Users/djohansen/.vim'
