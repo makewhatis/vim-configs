@@ -109,13 +109,6 @@ au BufRead,BufNewFile *.aurora set filetype=python
 " Plugin Configuration
 "****************************************
 " ---------------
-" ListToggle
-" ---------------
-"Unmap this function so Syntastic can use the binding
-let g:lt_location_list_toggle_map = '<leader>9'
-nnoremap m :lprev<CR>
-nnoremap M :lnext<CR>
-" ---------------
 " Syntastic
 " ---------------
 let g:syntastic_always_populate_loc_list = 1
