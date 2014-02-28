@@ -164,46 +164,10 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
-
-" ---------------
-" Easy Motion
-" ---------------
-let g:EasyMotion_leader_key = '<Leader>'
-
-" ---------------
-" Sneak
-" ---------------
-let g:sneak#streak = 1
-
 " ---------------
 " Indent Lines
 " ---------------
 let g:indentLine_color_term = 239
-
-" ---------------
-" Vundle
-" ---------------
-" Install/Uninstall
-" nnoremap <Leader>ni :Unite neobundle/install:!<CR>
-nnoremap <Leader>ni :NeoBundleInstall<CR>
-nnoremap <Leader>nc :NeoBundleClean<CR>
-" Non-async update
-" nnoremap <Leader>bi :NeoBundleInstall!<CR>
-
-" ---------------
-" Tabularize
-" ---------------
-" Tabularize based on commas
-nnoremap <C-g>,1 :Tab /,<CR>:Tab /:<CR>:Tab /=<CR>:Tab /\S\+; <CR>
-xnoremap <C-g>,1 :Tab /,<CR>:Tab /:<CR>:Tab /=<CR>:Tab /\S\+; <CR>
-
-" ---------------
-" TCommenter
-" ---------------
-nmap <C-c> <C-g>ccj
-xmap <C-c> <C-g>c
-" Comment paragraph
-nmap <leader>cp gcip
 
 "****************************************
 " Functions
