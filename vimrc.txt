@@ -109,27 +109,18 @@ au BufRead,BufNewFile *.aurora set filetype=python
 " Plugin Configuration
 "****************************************
 " ---------------
-" Ultisnips
-" ---------------
-"Triggers are <c-space>
-let g:UltiSnipsExpandTrigger="<c-g><c-q>"
-let g:UltiSnipsJumpForwardTrigger="<c-g><c-q>"
-
-" ---------------
 " ListToggle
 " ---------------
 "Unmap this function so Syntastic can use the binding
 let g:lt_location_list_toggle_map = '<leader>9'
 nnoremap m :lprev<CR>
 nnoremap M :lnext<CR>
-
 " ---------------
 " Syntastic
 " ---------------
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_cpp_compiler = 'clang++' " Use clang++ instead of g++
 let g:syntastic_python_checkers=['pep8']
-
 " ---------------
 " ctrlp.vim
 " ---------------
