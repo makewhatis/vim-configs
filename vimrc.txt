@@ -1,74 +1,3 @@
-"******************************
-"* Plugins
-"******************************
-
-"Vim package manager that handles all these bundles
-filetype off
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-
-
-NeoBundle 'Valloric/YouCompleteMe' "Tab-Completion for various programming languages
-NeoBundle 'Valloric/ListToggle' "Show list of compile errors
-NeoBundle 'godlygeek/tabular' "Line up commas and other text
-"TODO slow because of syntax highlighting NeoBundle 'dag/vim2hs' "Extra haskell features
-" NeoBundle 'klen/python-mode' "Extra python features
-NeoBundle 'tpope/vim-endwise' "Autoend some structures
-NeoBundle 'tpope/vim-surround' "Surround objects with quotes
-NeoBundle 'tomtom/tcomment_vim' "Comment lines out
-NeoBundle 'tpope/vim-repeat' "Makes the . key work with a lot of plugins
-NeoBundle 'PeterRincker/vim-argumentative' "Swap function arguments
-NeoBundle 'SirVer/ultisnips' "Snippets
-"DEPENDENCIES
-  NeoBundle 'MarcWeber/vim-addon-mw-utils'
-  NeoBundle 'tomtom/tlib_vim'
-  " NeoBundle 'Shougo/unite.vim'
-"FILE MANIPULATION
-  NeoBundle 'kien/ctrlp.vim' "Open files with fuzzy finding
-  NeoBundle 'vim-scripts/Rename' "Rename current file
-  NeoBundle 'vim-scripts/RemoveFile.vim' "Delete current file
-  NeoBundle 'tpope/vim-obsession' "Better session management
-"TEXT OBJECTS
-  NeoBundle 'kana/vim-textobj-user'
-  NeoBundle 'bkad/CamelCaseMotion'
-  NeoBundle 'glts/vim-textobj-comment'
-  NeoBundle 'kana/vim-textobj-function'
-  NeoBundle 'michaeljsmith/vim-indent-object'
-  NeoBundle 'paradigm/TextObjectify' "List object (e.g. di,)
-  NeoBundle 'natw/vim-pythontextobj' "Python class and function objects
-"NAVIGATION
-  NeoBundle 'thinca/vim-visualstar' "Make * for visual mode
-  " NeoBundle 'svermeulen/vim-extended-ft' "Make f/t better (e.g. smartcase) " "TODO breaks ;
-  " NeoBundle 'Lokaltog/vim-easymotion' "Jump to certain letters quickly
-  NeoBundle 'lambacck/python_matchit' "Make % operator work for python blocks (since it has no braces)
-  NeoBundle 'justinmk/vim-sneak' " Better easymotion
-  let g:sneak#streak = 1
-  NeoBundle 'dbakker/vim-paragraph-motion' " { and } not only matches blank lines, but also lines with only whitespace
-"AESTHETICS
-  NeoBundle 'osyo-manga/vim-over' "Show search results before replacing
-  NeoBundle 'nathanaelkane/vim-indent-guides' "Show indent guidelines TODO doesn't work maybe because of https://github.com/nathanaelkane/vim-indent-guides/issues/67
-  " NeoBundle 'Yggdroot/indentLine' "Show indent guidelines
-  NeoBundle 'bling/vim-airline' "Better status bar
-  NeoBundle 'gregsexton/MatchTag' "Highlight matching tags in html
-  NeoBundle 'scrooloose/syntastic' "Syntax highlighting for various languages
-  NeoBundle 'dbakker/vim-lint' "Error highlighting for vimrc
-  NeoBundle 'derekwyatt/vim-scala' "Scala syntax highlighting
-  NeoBundle 'tomtom/quickfixsigns_vim' "Colored sidebar markers (e.g. compilation errors)
-  NeoBundle 'mhinz/vim-signify' "Show git changes in sidebar
-  NeoBundle 'vim-scripts/AnsiEsc.vim' "Ability to escape color codes
-
-filetype plugin indent on
-
-" Make % match more things
-runtime macros/matchit.vim
-
-"******************************
-"* Settings
-"******************************
 "Omnicomplete
   set ofu=syntaxcomplete#Complete completeopt=longest,menuone matchtime=3
 "Paste Toggle (toggle + C-S-v + toggle)
@@ -152,50 +81,6 @@ set wildignore+=*.pyc,*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-
 set wildignore+=*/.pants.d/*,.pants.d,*/.python,.python
 set nowrap "Turn off word-wrapping
 set showcmd "Show commands as you are typing them
-"Set window title
-  set titlestring=%f%h%r%w\ %m
-  set title
-" Better include path handling
-  set path+=src/
-  let &inc.=' ["<]'
-" Set zsh as vim's shell
-if filereadable('/usr/bin/zsh')
-  set shell=/usr/bin/zsh
-endif
-"Leader Key
-let mapleader   = ","
-let g:mapleader = ","
-" Tell vim to search up tree until it finds ctags file
-" TODO recursive search doesn't work so I'm resorting to manually trying paths
-set tags=.git/tags,../.git/tags,../../.git/tags,../../../.git/tags,../../../../.git/tags,../../../../../.git/tags,../../../../../../.git/tags,../../../../../../../.git/tags,../../../../../../../../.git/tags,tags;/
-"hi CursorLine ctermbg=234 "Highlight current line (inc/dec # to make lighter/darker)
-"Colors
-  syntax enable "Enable syntax highlighting (must come before others as to not overwrite them)
-  hi SpellBad term=NONE ctermbg=124 "Make spelling mistake highlighting darker
-  hi LineNr ctermfg=208 "Line number color
-  " set cursorline "Underline current line
-  hi CursorLine term=bold cterm=bold ctermbg=234 "Bold the Cursor Line
-  hi Directory ctermfg=darkcyan
-  " Right edge to stop me from typing more than X chars
-  set colorcolumn=100
-  "TODO laggy call matchadd('ColorColumn', '\%81v', 100)
-  set t_Co=256
-  set bg=dark
-  "More robust but doesn't work? if &t_Co == 256
-  if $COLORTERM == 'rxvt-xpm'
-    " settings for 256-color theme
-    colorscheme desert256
-  else
-    " settings for tty
-    colorscheme noctu
-  endif
-  match Todo /TODO/ "Hilight TODO
-  " Search Colors
-    hi Search ctermbg=240
-    hi ColorColumn ctermbg=0 ctermbg=12
-    hi Search cterm=NONE ctermbg=white ctermbg=magenta
-    hi IncSearch cterm=NONE ctermfg=white ctermbg=lightBlue
-
 " ---------------
 " Status Line
 " ---------------
@@ -206,22 +91,6 @@ set statusline+=%=   "left/right separator
 set statusline+=%c,  "cursor column
 set statusline+=%l   "cursor line/total lines
 set statusline+=\ %P "percent through file
-
-
-"Put yank buffer into xclip on leave
-autocmd VimLeave * call system("xsel -ib", getreg('+'))
-
-"Autoreloads
-  autocmd BufWritePost ~/.xmonad/xmonad.hs silent !ghc -e ':m +XMonad Control.Monad System.Exit' -e 'flip unless exitFailure =<< recompile False' && xmonad --restart
-  autocmd BufWritePost ~/Dropbox/ubuntu/var/spool/cron/crontabs/dan silent !crontab -u dan ~/Dropbox/ubuntu/var/spool/cron/crontabs/dan
-  autocmd BufWritePost ~/bin/system/fstabentries silent !sudo $HOME/bin/.helper/populatefstab && notify-send 'Updated fstab entries'
-  autocmd BufWritePost ~/.Xresources silent !xrdb ~/.Xresources && notify-send 'Updated xresources'
-  autocmd BufWritePost ~/.xmodmap silent !xmodmap ~/.xmodmap && notify-send 'Updated xmodmap'
-  autocmd! BufWritePost ~/.vimrc silent source ~/.vimrc
-
-"Remove trailing whitespace on write
-" autocmd BufWritePost * silent FixTrailingWhiteSpace
-
 "When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
       \ if line("'\"") > 1 && line ("'\"") <= line("$") |
@@ -239,72 +108,6 @@ au BufRead,BufNewFile *.aurora set filetype=python
 "****************************************
 " Plugin Configuration
 "****************************************
-"----------------------------------------
-" CamelCaseMotion
-"----------------------------------------
-map <silent> W <Plug>CamelCaseMotion_w
-map <silent> B <Plug>CamelCaseMotion_b
-map <silent> E <Plug>CamelCaseMotion_e
-"TODO don't work
-" omap <silent> iW <Plug>CamelCaseMotion_iw
-" xmap <silent> iW <Plug>CamelCaseMotion_iw
-" omap <silent> iB <Plug>CamelCaseMotion_ib
-" xmap <silent> iB <Plug>CamelCaseMotion_ib
-" omap <silent> iE <Plug>CamelCaseMotion_ie
-" xmap <silent> iE <Plug>CamelCaseMotion_ie
-
-"----------------------------------------
-" List Object
-"----------------------------------------
-"TODO don't work
-onoremap <silent> a, aP
-onoremap <silent> i, iP
-xnoremap <silent> a, aP
-xnoremap <silent> i, iP
-
-"----------------------------------------
-" Matchit
-"----------------------------------------
-let b:match_ignorecase = 1
-
-"----------------------------------------
-" jk-jumps
-"----------------------------------------
-"Moving at least 2 lines using j/k is recorded in jump list history
-let g:jk_jumps_minimum_lines = 2
-
-" ---------------
-" YouCompleteMe
-" ---------------
-" Don't prompt to confirm extra configuration options file (a bit insecure if someone
-" injects their own)
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_detailed_diagnostics = ''
-
-" ---------------
-" Airline
-" ---------------
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" Hide filetype/encoding info
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-
-" Show current working directory
-let g:airline_section_b = '%{getcwd()}'
-let g:airline_section_c = '%t'
-
 " ---------------
 " Ultisnips
 " ---------------
@@ -424,21 +227,6 @@ command! FixTrailingWhiteSpace :%s/\s\+$//e
 " OR ELSE ring the match in red...
 highlight WhiteOnRed guibg=red
 
-" TODO doesn't work and also is not asynchronous (supposed to highlight
-" nnoremap <silent> n n:call HLNext(0.4)<cr>
-" nnoremap <silent> N N:call HLNext(0.4)<cr>
-" current match when using 'n' briefly in red)
-" function! HLNext (blinktime)
-"     let [bufnum, lnum, col, off] = getpos('.')
-"     let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-"     let target_pat = '\c\%#'.@/
-"     let ring = matchadd('WhiteOnRed', target_pat, 101)
-"     redraw
-"     exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-"     call matchdelete(ring)
-"     redraw
-" endfunction
-
 " ---------------
 " Folds
 " ---------------
@@ -497,40 +285,4 @@ function! NeatFoldText()
   return foldtextstart . repeat(foldchar, winwidth(0)-length) . foldtextend
 endfunction
 set foldtext=NeatFoldText()
-
-"No annoying warnings for sudo saves and read only saves
-let s:IgnoreChange=0
-autocmd! FileChangedRO * nested
-    \ let s:IgnoreChange=1 | call system("p4 edit " . expand("%")) | set noreadonly
-autocmd! FileChangedShell *
-    \ if 1 == s:IgnoreChange | let v:fcs_choice="" | let s:IgnoreChange=0 | else |
-    \   let v:fcs_choice="ask" |
-    \ endif
-"Relative line numbers in normal mode, absolute in insert mode
-"TODO don't think I need this anymore since vim allows you to enable both
-"relative and absolute numbers at same time
-" au InsertEnter * :set number
-" au InsertLeave * :set relativenumber
-" "TODO don't work
-" "Switch to absolute line numbers when focus is lost
-" au FocusLost * :set number
-" au FocusGained * :set relativenumber
-
-" Backup
-au BufWritePre * let &bex = '-' . strftime("%Y%b%d%X") . '~'
-
-" Returns the wordcount of the document
-function! WordCount()
-  let s:old_status = v:statusmsg
-  let position = getpos(".")
-  exe "silent normal g\<c-g>"
-  if strlen(v:statusmsg) > 22
-    let s:word_count = str2nr(split(v:statusmsg)[11])
-    let v:statusmsg = s:old_status
-    call setpos('.', position)
-    return s:word_count
-  else
-    return 0
-  endif
-endfunction
 
