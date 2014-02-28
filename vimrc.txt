@@ -33,7 +33,6 @@ NeoBundle 'SirVer/ultisnips' "Snippets
   NeoBundle 'vim-scripts/RemoveFile.vim' "Delete current file
   NeoBundle 'tpope/vim-obsession' "Better session management
 "TEXT OBJECTS
-  NeoBundle 'kana/vim-niceblock' "Allows selecting blocks of text and then using A and I (more intuitive A and I)
   NeoBundle 'kana/vim-textobj-user'
   NeoBundle 'bkad/CamelCaseMotion'
   NeoBundle 'glts/vim-textobj-comment'
@@ -43,7 +42,6 @@ NeoBundle 'SirVer/ultisnips' "Snippets
   NeoBundle 'natw/vim-pythontextobj' "Python class and function objects
 "NAVIGATION
   NeoBundle 'thinca/vim-visualstar' "Make * for visual mode
-  NeoBundle 'teranex/jk-jumps.vim' "Make j/k count as jumps so jumping to previous lines works as expected
   " NeoBundle 'svermeulen/vim-extended-ft' "Make f/t better (e.g. smartcase) " "TODO breaks ;
   " NeoBundle 'Lokaltog/vim-easymotion' "Jump to certain letters quickly
   NeoBundle 'lambacck/python_matchit' "Make % operator work for python blocks (since it has no braces)
@@ -55,8 +53,6 @@ NeoBundle 'SirVer/ultisnips' "Snippets
   NeoBundle 'nathanaelkane/vim-indent-guides' "Show indent guidelines TODO doesn't work maybe because of https://github.com/nathanaelkane/vim-indent-guides/issues/67
   " NeoBundle 'Yggdroot/indentLine' "Show indent guidelines
   NeoBundle 'bling/vim-airline' "Better status bar
-  " NeoBundle 'lilydjwg/colorizer' "Colorize color codes in files
-  " NeoBundle 'henrik/vim-indexed-search' " Show 'Result X/Y' for searches TODO doesn't work
   NeoBundle 'gregsexton/MatchTag' "Highlight matching tags in html
   NeoBundle 'scrooloose/syntastic' "Syntax highlighting for various languages
   NeoBundle 'dbakker/vim-lint' "Error highlighting for vimrc
