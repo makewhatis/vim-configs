@@ -1,3 +1,7 @@
+execute pathogen#infect()
+syntax on
+set background=dark
+colorscheme solarized
 "Omnicomplete
   set ofu=syntaxcomplete#Complete completeopt=longest,menuone matchtime=3
 "Paste Toggle (toggle + C-S-v + toggle)
@@ -111,9 +115,9 @@ au BufRead,BufNewFile *.aurora set filetype=python
 " ---------------
 " Syntastic
 " ---------------
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_cpp_compiler = 'clang++' " Use clang++ instead of g++
-let g:syntastic_python_checkers=['pep8']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_cpp_compiler = 'clang++' " Use clang++ instead of g++
+"let g:syntastic_python_checkers=['pep8']
 " ---------------
 " ctrlp.vim
 " ---------------
@@ -149,7 +153,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 " ---------------
-" Indent Lines
 " ---------------
 let g:indentLine_color_term = 239
 
@@ -234,3 +237,5 @@ function! NeatFoldText()
 endfunction
 set foldtext=NeatFoldText()
 
+"let g:syntastic_python_checkers = ['pylint']
+"let g:syntastic_python_pylint_args = \"--indent-string='2 spaces' --max-line-length='100' --disable=F0401"
