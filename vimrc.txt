@@ -108,7 +108,7 @@ autocmd InsertLeave * :setlocal hlsearch
 " Custom filetypes
 au BufRead,BufNewFile BUILD.* set filetype=python
 au BufRead,BufNewFile *.aurora set filetype=python
-
+au BufRead,BufNewFile *.alert set filetype=mustache
 "****************************************
 " Plugin Configuration
 "****************************************
@@ -237,5 +237,3 @@ function! NeatFoldText()
 endfunction
 set foldtext=NeatFoldText()
 
-"let g:syntastic_python_checkers = ['pylint']
-"let g:syntastic_python_pylint_args = \"--indent-string='2 spaces' --max-line-length='100' --disable=F0401"
