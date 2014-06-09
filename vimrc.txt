@@ -1,7 +1,4 @@
 execute pathogen#infect()
-syntax on
-set background=dark
-colorscheme solarized
 "Omnicomplete
   set ofu=syntaxcomplete#Complete completeopt=longest,menuone matchtime=3
 "Paste Toggle (toggle + C-S-v + toggle)
@@ -22,9 +19,11 @@ colorscheme solarized
   set viewdir=~/.vimviews "Where cursor position and other info for each file is stored
   " set viewoptions=folds,options
 "Undo even after closing a file
-  set undofile undodir=$HOME/.vimundo
   set undolevels=1000 " How many undos
+if version >= 703
+  set undofile undodir=$HOME/.vimundo
   set undoreload=10000 " Number of lines to save for undo
+endif
 set autoread "Automatically reload if changes detected
 " set autowriteall "Save when focus is lost
 set bufhidden=hide
@@ -63,7 +62,9 @@ set lazyredraw "Doesn't bounce around during macros and functions
 set noswapfile
 " set number "Line Numbers
 set number "Proper line number for current line
-set relativenumber "Line numbers relative to the cursor's line for all lines but current line
+"if version >= 703
+"  set relativenumber "Line numbers relative to the cursor's line for all lines but current line
+"endif
 set numberwidth=3
 set scrolloff=3 "Minimum number of lines to keep below/above current line
 set scrolljump=5 "Lines to scroll when cursor leaves screen
@@ -236,4 +237,14 @@ function! NeatFoldText()
   return foldtextstart . repeat(foldchar, winwidth(0)-length) . foldtextend
 endfunction
 set foldtext=NeatFoldText()
-
+syntax on
+set term=screen-256color
+set background=dark
+" solarized options 
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"let g:solarized_termcolors = 256
+"colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night-Bright
+let NERDTreeIgnore = ['\.pyc$']
