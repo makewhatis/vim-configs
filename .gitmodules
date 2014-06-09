@@ -24,4 +24,7 @@
 	url = https://github.com/mustache/vim-mustache-handlebars.git
 [submodule "vim-markdown"]
 	path = vim-markdown
-	url = https://github.com/hallison/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
