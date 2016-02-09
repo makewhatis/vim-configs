@@ -46,3 +46,6 @@
 [submodule "bundle/indentLine"]
 	path = bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/vim-jsonnet"]
+	path = bundle/vim-jsonnet
+	url = https://github.com/google/vim-jsonnet
