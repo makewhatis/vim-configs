@@ -69,7 +69,7 @@ set numberwidth=3
 set scrolloff=3 "Minimum number of lines to keep below/above current line
 set scrolljump=5 "Lines to scroll when cursor leaves screen
 set shiftround "Fixes indents that aren't a multiple of shiftwidth automatically
-set shiftwidth=4 "How much shift command should shift over by
+set shiftwidth=2 "How much shift command should shift over by
 "set spelllang=en
 "set spellsuggest=9
 set shortmess+=filmnrxoOtT "Shorter messages
@@ -77,8 +77,8 @@ syntax sync minlines=256 "Update syntax highlighting for more lines increased sc
 set synmaxcol=256 "Don't syntax highlight long lines
 " set nofoldenable "Disable folding by default
 set mouse= "Disable mouse support
-set tabstop=4 "Width of tab
-set softtabstop=4 "Width of tab in insert mode
+set tabstop=2 "Width of tab
+set softtabstop=2 "Width of tab in insert mode
 set tabpagemax=100 "Increase max # of tabs
 set tildeop "Make tilde work with motions
 "TODO don't need both */.python and .python styles, figure out which one is right
@@ -238,46 +238,16 @@ function! NeatFoldText()
 endfunction
 set foldtext=NeatFoldText()
 syntax on
-"set term=screen-256color
-"set background=dark
-" solarized options
+set term=screen-256color
+set background=dark
+" solarized options 
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 "let g:solarized_termcolors = 256
-colorscheme molokai
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "colorscheme Tomorrow-Night-Eighties
 "colorscheme Tomorrow-Night-Bright
 let NERDTreeIgnore = ['\.pyc$']
 "highlight VertSplit ctermbg=NONE
 "highlight VertSplit ctermfg=NONE
 highlight LineNr ctermfg=blue
-let g:neocomplete#enable_at_startup = 1
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-nmap <F8> :TagbarToggle<CR>
