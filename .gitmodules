@@ -58,3 +58,6 @@
 [submodule "bundle/papercolor-theme"]
 	path = bundle/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround

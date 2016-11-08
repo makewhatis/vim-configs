@@ -281,3 +281,14 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 nmap <F8> :TagbarToggle<CR>
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+" Clears trailing whitespace
+function! ClearTrailingWhitespace()
+    if &modifiable
+        let oldView = winsaveview()
+        %s/[ \t\r]\+$//e
+        call winrestview(oldView)
+    endif
+endfunction
+command! -nargs=* ClearTrailingWhitespace call ClearTrailingWhitespace()
