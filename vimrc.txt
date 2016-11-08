@@ -244,7 +244,11 @@ syntax on
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 "let g:solarized_termcolors = 256
-colorscheme molokai
+set t_Co=256   " This is may or may not needed.
+
+set background=dark
+colorscheme PaperColor
+"colorscheme molokai
 "colorscheme Tomorrow-Night
 "colorscheme Tomorrow-Night-Eighties
 "colorscheme Tomorrow-Night-Bright
@@ -292,3 +296,5 @@ function! ClearTrailingWhitespace()
     endif
 endfunction
 command! -nargs=* ClearTrailingWhitespace call ClearTrailingWhitespace()
+" ----------- Vim Airline --------------
+let g:airline#extensions#tabline#enabled = 1
