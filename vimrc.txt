@@ -1,4 +1,6 @@
-execute pathogen#infect()
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin on
 "Omnicomplete
   set ofu=syntaxcomplete#Complete completeopt=longest,menuone matchtime=3
 "Paste Toggle (toggle + C-S-v + toggle)
@@ -24,6 +26,19 @@ if version >= 703
   set undofile undodir=$HOME/.vimundo
   set undoreload=10000 " Number of lines to save for undo
 endif
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+""----------- Go lint -----------------"
+"set rtp+=/home/djohansen/gowork/src/github.com/golang/lint/misc/vim
+"autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
 set autoread "Automatically reload if changes detected
 " set autowriteall "Save when focus is lost
 set bufhidden=hide
