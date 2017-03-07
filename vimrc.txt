@@ -30,14 +30,23 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" opens the edit command on the current directory
+noremap <leader>c :edit <c-r>=expand("%:h")<cr>/
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
+set cursorline " Highlight the line with the cursor
+set hlsearch " Highlight matches
+" Clear matches with leader space
+nnoremap <leader><space> :nohlsearch<cr>
+
 ""----------- Go lint -----------------"
 "set rtp+=/home/djohansen/gowork/src/github.com/golang/lint/misc/vim
 "autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+autocmd BufNewFile,BufRead *.pipeline   set syntax=groovy
 
 set autoread "Automatically reload if changes detected
 " set autowriteall "Save when focus is lost
@@ -84,7 +93,7 @@ set numberwidth=3
 set scrolloff=3 "Minimum number of lines to keep below/above current line
 set scrolljump=5 "Lines to scroll when cursor leaves screen
 set shiftround "Fixes indents that aren't a multiple of shiftwidth automatically
-set shiftwidth=4 "How much shift command should shift over by
+set shiftwidth=2 "How much shift command should shift over by
 "set spelllang=en
 "set spellsuggest=9
 set shortmess+=filmnrxoOtT "Shorter messages
@@ -92,8 +101,8 @@ syntax sync minlines=256 "Update syntax highlighting for more lines increased sc
 set synmaxcol=256 "Don't syntax highlight long lines
 " set nofoldenable "Disable folding by default
 set mouse= "Disable mouse support
-set tabstop=4 "Width of tab
-set softtabstop=4 "Width of tab in insert mode
+set tabstop=2 "Width of tab
+set softtabstop=2 "Width of tab in insert mode
 set tabpagemax=100 "Increase max # of tabs
 set tildeop "Make tilde work with motions
 "TODO don't need both */.python and .python styles, figure out which one is right
@@ -125,6 +134,7 @@ autocmd InsertLeave * :setlocal hlsearch
 au BufRead,BufNewFile BUILD.* set filetype=python
 au BufRead,BufNewFile *.aurora set filetype=python
 au BufRead,BufNewFile *.alert set filetype=mustache
+au BufRead,BufNewFile *.script set filetype=sh
 "****************************************
 " Plugin Configuration
 "****************************************
