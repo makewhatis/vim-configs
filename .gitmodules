@@ -67,3 +67,6 @@
 [submodule "bundle/vim-obsession"]
 	path = bundle/vim-obsession
 	url = git://github.com/tpope/vim-obsession.git
+[submodule "bundle/vim-nomadproject"]
+	path = bundle/vim-nomadproject
+	url = https://github.com/hashivim/vim-nomadproject.git
