@@ -272,6 +272,8 @@ syntax on
 "let g:solarized_termcolors = 256
 set t_Co=256   " This is may or may not needed.
 
+let g:vim_markdown_conceal = 0
+
 set background=dark
 colorscheme PaperColor
 "colorscheme molokai
